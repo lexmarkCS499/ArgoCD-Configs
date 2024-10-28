@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: Lexmark_API
+  name: api
   namespace: argocd
   annotations:
     argocd-image-updater.argoproj.io/image-list: "apiservice=docker.io/lexmarkkubernetes/apiservice"

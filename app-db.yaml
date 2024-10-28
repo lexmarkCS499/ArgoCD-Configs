@@ -1,10 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: Lexmark_DB
+  name: db
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: "apiservice=docker.io/lexmarkkubernetes/db_service"
+    argocd-image-updater.argoproj.io/image-list: "dbservice=docker.io/lexmarkkubernetes/db_service"
     argocd-image-updater.argoproj.io/apiservice.update-strategy: "latest"  # Or "semver"
 spec:
   project: default
