@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: Lexmark_DB
+  namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: "apiservice=docker.io/lexmarkkubernetes/db_service"
+    argocd-image-updater.argoproj.io/apiservice.update-strategy: "latest"  # Or "semver"
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/lexmarkCS499/kubernetes-manifests'
+    targetRevision: HEAD
+    path: 'overlays/dev/DB'  # Adjust based on your target environment
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
