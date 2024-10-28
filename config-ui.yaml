@@ -11,7 +11,7 @@ spec:
   source:
     repoURL: 'https://github.com/lexmarkCS499/UI_Microservice'
     targetRevision: HEAD
-    path: 'manifests/overlays/dev/UI'  # Adjust based on your target environment
+    path: 'manifests/overlays/dev'  # Adjust based on your target environment
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
