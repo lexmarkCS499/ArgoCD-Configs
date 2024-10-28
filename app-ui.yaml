@@ -3,6 +3,9 @@ kind: Application
 metadata:
   name: Lexmark_UI
   namespace: argocd
+  annotations:
+    argocd-image-updater.argoproj.io/image-list: "apiservice=docker.io/lexmarkkubernetes/uiservice"
+    argocd-image-updater.argoproj.io/apiservice.update-strategy: "latest"  # Or "semver"
 spec:
   project: default
   source:
