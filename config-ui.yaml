@@ -9,9 +9,9 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/lexmarkCS499/kubernetes-manifests'
+    repoURL: 'https://github.com/lexmarkCS499/UI_Microservice'
     targetRevision: HEAD
-    path: 'overlays/dev/UI'  # Adjust based on your target environment
+    path: 'manifests/overlays/dev/UI'  # Adjust based on your target environment
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: default
