@@ -4,8 +4,10 @@ metadata:
   name: db
   namespace: argocd
   annotations:
-    argocd-image-updater.argoproj.io/image-list: "dbservice=docker.io/lexmarkkubernetes/db_service"
+    argocd-image-updater.argoproj.io/image-list: "dbservice=docker.io/lexmarkkubernetes/db_microservice"
     argocd-image-updater.argoproj.io/apiservice.update-strategy: "latest"  # Or "semver"
+    argocd-image-updater.argoproj.io/refresh: always
+    argocd-image-updater.argoproj.io/write-back-method: git
 spec:
   project: default
   source:
