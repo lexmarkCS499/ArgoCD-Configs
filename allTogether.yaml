@@ -3,10 +3,19 @@ kind: Application
 metadata:
   name: my-microservices-app-dev
   namespace: argocd
+  annotations:
+    # Image list to track updates for the following images
+    argocd-image-updater.argoproj.io/image-list: |
+      uiservice=docker.io/lexmarkkubernetes/uiservice
+      apiservice=docker.io/lexmarkkubernetes/apiservice
+      db_microservice=docker.io/lexmarkkubernetes/db_microservice
+    argocd-image-updater.argoproj.io/refresh: always
+    argocd-image-updater.argoproj.io/apiservice.update-strategy: "latest"  # Or "semver"
+    argocd-image-updater.argoproj.io/write-back-method: git
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/LexmarkCS/Lexmark.git'  # Git repo
+    repoURL: 'https://github.com/lexmarkCS499/Lexmark.git'  # Git repo
     targetRevision: HEAD
     path: overlays/dev  # Path to the dev overlay
     kustomize:
