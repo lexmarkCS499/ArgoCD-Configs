@@ -16,12 +16,12 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/lexmarkCS499/Lexmark.git'  # Git repo
-    targetRevision: HEAD
+    targetRevision: dev
     path: overlays/dev  # Path to the dev overlay
     kustomize:
       namePrefix: my-app-  # Prefix for all resources
   destination:
-    server: 'https://kubernetes.default.svc'
+    server: 'https://kubernetes.default.svc'  
     namespace: default  # Namespace in which to deploy the app
   syncPolicy:
     automated:
