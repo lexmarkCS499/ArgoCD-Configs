@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: my-microservices-app-dev
+  name: dev-app
   namespace: argocd
   annotations:
     # Image list to track updates for the following images
@@ -18,11 +18,11 @@ spec:
     repoURL: 'https://github.com/lexmarkCS499/Lexmark.git'  # Git repo
     targetRevision: dev
     path: overlays/dev  # Path to the dev overlay
-    kustomize:
-      namePrefix: my-app-  # Prefix for all resources
+    # kustomize:
+    #   namePrefix: dev-  # Prefix for all resources
   destination:
     server: 'https://kubernetes.default.svc'  
-    namespace: default  # Namespace in which to deploy the app
+    namespace: dev  # Namespace in which to deploy the app
   syncPolicy:
     automated:
       prune: true
